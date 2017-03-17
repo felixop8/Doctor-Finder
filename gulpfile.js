@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var buildProduction = utilities.env.production;
+var del = require('del');
 
 gulp.task("minifyScripts", ["jsBrowserify"], function(){
   return gulp.src("./build/js/app.js")
@@ -31,4 +32,8 @@ gulp.task("build", function(){
   } else {
     gulp.start('jsBrowserify');
   }
+});
+
+gulp.task("clean", function(){
+  return del(['build', 'tmp']);
 });
