@@ -13,5 +13,4 @@ Doctor.prototype.search = function(affection, displayDoctors) {
      console.log("fail");
    });
 };
-
 exports.doctorModule = Doctor;

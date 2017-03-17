@@ -17,7 +17,6 @@ Doctor.prototype.search = function(affection, displayDoctors) {
      console.log("fail");
    });
 };
-
 exports.doctorModule = Doctor;
 
 },{"./../.env":1}],3:[function(require,module,exports){
