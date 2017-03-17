@@ -84,3 +84,7 @@ gulp.task('serve', function() {
   });
    gulp.watch(['js/*.js'], ['jsBuild']);
 });
+
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+  browserSync.reload();
+});
