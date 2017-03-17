@@ -1,0 +1,17 @@
+{
+  "name": "docotor-finder",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "felixop8 <felixop8@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
