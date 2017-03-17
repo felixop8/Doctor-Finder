@@ -1,6 +1,10 @@
+var Doctor = require('./../js/doctor.js').doctorModule;
+
 $(document).ready(function() {
-  $('#medicalIssue').submit(function() {
+  $('#doctorForm').submit(function(event) {
+    event.preventDefault();
     var affection = $('#medicalIssue').val();
-    var 
+    var doctorFinder = new Doctor();
+    doctorFinder.search(affection);
   });
 });
