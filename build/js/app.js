@@ -8,8 +8,8 @@ function Doctor(){
 }
 
 
-Doctor.prototype.search = function(affection, displayDoctors) {
-  $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ affection + '&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=' + apiKey)
+Doctor.prototype.search = function(affection, doctorName, displayDoctors) {
+  $.get('https://api.betterdoctor.com/2016-03-01/doctors?name='+ doctorName + '&query= '+ affection + '&location=45.5231%2C-122.6765%2C%205&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=' + apiKey)
   .then(function(result) {
     displayDoctors(result.data);
    })
@@ -24,9 +24,12 @@ var Doctor = require('./../js/doctor.js').doctorModule;
 
 
 var displayDoctors = function(result) {
-  for (var i = 0; i < result.length; i++) {
-    $('#result').append('<li>' + result[i].profile.first_name + " " + result[i].profile.last_name + '<img src=' + result[i].profile.image_url + '></li>');
-    console.log(result[i].profile.first_name);
+  if (result.length !== 0) {
+    for (var i = 0; i < result.length; i++) {
+      $('#result').append('<li>' + result[i].profile.first_name + " " + result[i].profile.last_name + '<img src=' + result[i].profile.image_url + '></li>');
+    }
+  } else {
+    $('#result').text("No results found");
   }
 };
 
@@ -35,9 +38,11 @@ $(document).ready(function() {
     event.preventDefault();
     $('#result').empty();
     var affection = $('#medicalIssue').val();
+    var doctorName = $('#doctorName').val();
     $('#medicalIssue').val("");
+    $('#doctorName').val("");
     var doctorFinder = new Doctor();
-    doctorFinder.search(affection, displayDoctors);
+    doctorFinder.search(affection, doctorName, displayDoctors);
   });
 });
 
