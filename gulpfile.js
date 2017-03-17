@@ -26,7 +26,7 @@ gulp.task('concatInterface', function() {
   	 .pipe(gulp.dest('./tmp'));
 });
 
-gulp.task("build", function(){
+gulp.task("build", ['clean'], function(){
   if (buildProduction) {
     gulp.start('minifyScripts');
   } else {
