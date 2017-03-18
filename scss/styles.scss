@@ -1,10 +1,35 @@
 $gray : #d3d3d3;
 $green : #75B975;
-
+$yellow :  #fff04b;
 body{
-  background: $gray;
+  background: #f6f6f6;
 }
 
-h1 {
-  text-align: center;
+// h1 {
+//   text-align: center;
+// }
+
+img {
+  border-radius: 100%;
+  padding-top: 20px;
+}
+
+#felix {
+  background-color: white;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+#navbarColor {
+  background-color: $yellow;
+}
+
+button {
+  background-color: #00234b;
+  color: white;
+}
+
+#brandHeader {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 3em;
 }

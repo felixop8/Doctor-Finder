@@ -4,17 +4,28 @@ var Doctor = require('./../js/doctor.js').doctorModule;
 var displayDoctors = function(result) {
   if (result.length !== 0) {
     for (var i = 0; i < result.length; i++) {
-      $('#result').append('<li>' + result[i].profile.first_name + " " + result[i].profile.last_name + " " + result[i].profile.title + " " + '<img src=' + result[i].profile.image_url + '></li>');
+      $('#results').append(
+      "<div class='row' id='felix'>" +
+        "<div class='col-md-3'>" +
+          "<img src='" + result[i].profile.image_url + "'>" +
+        "</div>" +
+        "<div class='col-md-8'>" +
+          "<h2>" + result[i].profile.first_name + ' ' + result[i].profile.last_name + ' ' + result[i].profile.title + "</h2>" +
+          "<textarea class='form-control' rows='5'>" + result[i].profile.bio + "</textarea>" +
+        "</div>" +
+      "</div>"
+      );
     }
   } else {
-    $('#result').text("No results found");
+    $('#results').text("No results found");
   }
+  console.log(result.length);
 };
 
 $(document).ready(function() {
   $('#doctorForm').submit(function(event) {
     event.preventDefault();
-    $('#result').empty();
+    $('#results').empty();
     var affection = $('#medicalIssue').val();
     var doctorName = $('#doctorName').val();
     var states = $('#states').val();
