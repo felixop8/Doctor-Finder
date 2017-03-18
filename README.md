@@ -60,6 +60,7 @@ Please direct questions  to the author:
 * felixop8@gmail.com
 
 ## Known Bugs
+No known bugs. 
 
 ## License		
 MIT Commons		
