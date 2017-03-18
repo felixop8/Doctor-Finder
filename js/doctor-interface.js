@@ -34,14 +34,12 @@ $(document).ready(function() {
     var doctorFinder = new Doctor();
     doctorFinder.search(affection, doctorName, states, displayDoctors);
 
-  
-  var uluru = {lat: -25.363, lng: 131.044};
-  var portland = {lat: 45.5230622, lng: -122.6764816};
-  var arrayMaps = [uluru, portland];
 
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 2,
-    center: uluru
+
+    var portland = {lat: 45.5230622, lng: -122.6764816};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 9,
+    center: portland
   });
   });
 });
