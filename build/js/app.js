@@ -22,9 +22,15 @@ exports.doctorModule = Doctor;
 },{"./../.env":1}],3:[function(require,module,exports){
 var Doctor = require('./../js/doctor.js').doctorModule;
 
-
 var displayDoctors = function(result) {
-  console.log(result[0].practices[0].visit_address.city);
+
+  var zone = {lat: result[0].practices[0].lat, lng: result[0].practices[0].lon };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: zone,
+    zoom: 6
+  });
+
+
   if (result.length !== 0) {
     for (var i = 0; i < result.length; i++) {
       $('#results').append(
@@ -41,6 +47,14 @@ var displayDoctors = function(result) {
         "</div>" +
       "</div>"
       );
+
+
+      var marker = new google.maps.Marker({
+          position: {lat: result[i].practices[0].lat, lng: result[i].practices[0].lon },
+          map: map
+        });
+
+
     }
   } else {
     $('#results').text("No results found");
@@ -58,22 +72,6 @@ $(document).ready(function() {
     $('#doctorName').val("");
     var doctorFinder = new Doctor();
     doctorFinder.search(affection, doctorName, states, displayDoctors);
-
-
-
-    var portland = {lat: 45.5230622, lng: -122.6764816};
-    var arraymix = [{lat: 45.5230622, lng: -122.6764816}, {lat: 45.51735, lng:  -122.79763} ];
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 9,
-    center: portland
-    });
-
-      for (var i = 0; i <= arraymix.length; i++) {
-        var marker = new google.maps.Marker({
-          position: arraymix[i],
-          map: map
-        });
-      }
   });
 });
 
