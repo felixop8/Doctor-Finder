@@ -1,8 +1,9 @@
 $gray : #d3d3d3;
 $green : #75B975;
 
-body {
-  background: $green;
+.container {
+  background: $gray;
+  height: 700px;
 }
 
 h1 {
