@@ -2,6 +2,7 @@ var Doctor = require('./../js/doctor.js').doctorModule;
 
 
 var displayDoctors = function(result) {
+  console.log(result[0].practices[0].visit_address.city);
   if (result.length !== 0) {
     for (var i = 0; i < result.length; i++) {
       $('#results').append(
@@ -11,6 +12,9 @@ var displayDoctors = function(result) {
         "</div>" +
         "<div class='col-md-8'>" +
           "<h2>" + result[i].profile.first_name + ' ' + result[i].profile.last_name + ' ' + result[i].profile.title + "</h2>" +
+          "<p>" + result[i].practices[0].visit_address.city + ' ' + result[i].practices[0].visit_address.state  + "</p>" +
+          "<p>" + result[i].practices[0].visit_address.street + ', ' + result[i].practices[0].visit_address.zip  + "</p>" +
+          "<p>" + "Telephone: " + result[i].practices[0].phones[0].number  + "</p>" +
           "<textarea class='form-control' rows='5'>" + result[i].profile.bio + "</textarea>" +
         "</div>" +
       "</div>"
@@ -19,7 +23,6 @@ var displayDoctors = function(result) {
   } else {
     $('#results').text("No results found");
   }
-  console.log(result.length);
 };
 
 $(document).ready(function() {
@@ -37,9 +40,17 @@ $(document).ready(function() {
 
 
     var portland = {lat: 45.5230622, lng: -122.6764816};
+    var arraymix = [{lat: 45.5230622, lng: -122.6764816}, {lat: 45.51735, lng:  -122.79763} ];
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 9,
     center: portland
-  });
+    });
+
+      for (var i = 0; i <= arraymix.length; i++) {
+        var marker = new google.maps.Marker({
+          position: arraymix[i],
+          map: map
+        });
+      }
   });
 });
