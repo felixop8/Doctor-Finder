@@ -7,6 +7,9 @@
 **DocFinder** is a JavaScript application that demonstrate the use of tools that will help us build large JavaScript apps, allowing us to separate them out into multiple files and manage external dependencies. It also show how to use AJAX to communicate with a back-end using the JSON data format.
 
 
+# ![pageres](img/shot.png)
+
+
 ## Installation
 
 First of all we need to install **npm** and **bower**.
@@ -60,7 +63,7 @@ Please direct questions  to the author:
 * felixop8@gmail.com
 
 ## Known Bugs
-No known bugs. 
+No known bugs.
 
 ## License		
 MIT Commons		
